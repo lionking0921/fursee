@@ -1,0 +1,9 @@
+path: stage1_model # dataset root dir
+train: images/train
+val: images/val
+test: # optional
+
+# Classes
+names:
+  0: furry
+  1: face

@@ -1,0 +1,6 @@
+opencv-python
+ultralytics
+tqdm
+safetensors
+git+https://github.com/huggingface/transformers.git
+scikit-learn

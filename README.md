@@ -1,14 +1,14 @@
-# Fursee: **Hybrid YOLO-DINOv3 Framework for Fursuit Identity Retrieval and** Clustering
+# Fursee: Hybrid YOLO-DINOv3 Framework for Fursuit Identity Retrieval and Clustering
 
 [School of Computer Science and Technology, Shandong University](http://www.cs.en.qd.sdu.edu.cn/)
 
 [Jundi Wu](https://scholar.google.com/citations?user=_v-8x6IAAAAJ)
 
-[ :scroll: [`Paper`](https://arxiv.org/abs/2606.22872)] [ :book:[`BibTeX`](#citing-fursee)]
+[ :scroll: [`Paper`](https://arxiv.org/abs/2606.22872)] [ :book:[`BibTeX`](#citing-fursee)] [ :earth_asia: [`中文版`](https://github.com/lionking0921/fursee/blob/main/README-zh.md)]
 
 ## Overview
 
-Fursee is a three-stage pipeline for fursuit identity retrieval and clustering. It utilizes YOLO for detection, ArcFace-optimized DINOv3 for embeddings, and DBSCAN for unsupervised grouping. Outperforms GPT-5.5, Claude Opus 4.8, and Qwen on fursuit benchmarks.
+Fursee is a three-stage pipeline for fursuit identity retrieval and clustering. It utilizes YOLO for detection, ArcFace-optimized DINOv3 for embeddings, and DBSCAN for unsupervised grouping. Outperforms GPT-5.5, Claude Opus 4.8, and Qwen3.7-Plus on fursuit benchmarks.
 
 ![Attention Heatmap](https://raw.githubusercontent.com/lionking0921/wjdpicture/refs/heads/main/images/Fursee_F2.jpg)
 
@@ -20,13 +20,13 @@ The project uses a staged vision pipeline:
 
 ![Workflow](https://raw.githubusercontent.com/lionking0921/wjdpicture/refs/heads/main/images/Fursee_F1.jpg)
 
-### **Features**
+### Features
 
 - Detect and crop furry faces from images.
 - Build and update a local feature database with `db.py`.
 - Cluster images into identity-like classes with DBSCAN.
-- Search for the Top-K images most similar to one or more reference images.
 - Identify images that belong to one or more reference targets.
+- Search for the Top-K images most similar to one or more reference images.
 - Supports CUDA acceleration and multi-GPU feature extraction when available.
 
 ## Installation
@@ -34,6 +34,7 @@ The project uses a staged vision pipeline:
 ### Requirements
 
 - Python 3.12 or higher
+- Conda
 - CUDA-compatible GPU with CUDA 12.1 or higher
 
 ### Environment Setup
@@ -63,14 +64,14 @@ Model weights are not distributed with this repository. You can choose either of
 - **Download via** [Quark Cloud Disk](https://pan.quark.cn/s/c6f4b595d67e)**.**
 - **Download by joining our QQ group** [1050477921](https://qm.qq.com/q/W4eKZHXDqu) to download the weights **from the group files.**
 
-After downloading the weight files, please extract them to the fursee project directory. The structure of the entire project is shown below.
+After downloading the weight files, please extract them to the `fursee` project directory. The structure of the entire project is shown below.
 
 ```text
 ./fursee
 ├── db.py                    # Build/update the feature DB
 ├── classify.py              # Cluster images using an existing feature DB
-├── similar.py               # Top-K similarity search from one or more reference images
 ├── identify.py              # Identify images matching target identities
+├── similar.py               # Top-K similarity search from one or more reference images
 ├── requirements.txt         # Python dependencies
 ├── fursee_models/           # Local detection and embedding model assets
 ├── input/                   # Default input image folders
@@ -97,8 +98,8 @@ By default, FurSee reads images from these folders:
 
 ```text
 input/images/       	# Main image collection
-input/sim_targets/   	# One or more reference images for similarity search
 input/id_targets/  		# One or more reference images for identity search
+input/sim_targets/   	# One or more reference images for similarity search
 ```
 
 Supported image formats include `.jpg`, `.jpeg`, `.png`, `.webp`, `.bmp`, and `.tiff`.
@@ -238,14 +239,14 @@ python reset.py <scope>
 
 **Example:**
 
-To clear the output directories, run:
+To clear the `output` directories, run:
 
 ```bash
 python reset.py output
 ```
 
 > [!CAUTION]
-> This operation is irreversible. Use reset.py carefully. All erased data is unrecoverable.
+> Use `reset.py` carefully! This operation is irreversible. All erased data is unrecoverable.
 
 ## Model Performance
 
@@ -276,7 +277,7 @@ This project is licensed under the Fursee License - see the [LICENSE.md](https:/
 ## Contact
 
 Thanks for checking out this project!
-Feel free to reach out to the author below for any questions or discussions.
+Feel free to reach out to the author for any questions or discussions.
 If you find this project helpful, consider supporting the author via a [Bilibili Recharge](https://space.bilibili.com/451573384)!
 
 <div align="center">
